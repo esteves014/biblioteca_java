@@ -2,8 +2,8 @@ public class Book {
     private String title;
     private String author;
 
-    public void setBook(String tiitle, String author){
-        this.title = tiitle;
+    public Book(String title, String author) {
+        this.title = title;
         this.author = author;
     }
 }

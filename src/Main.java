@@ -6,7 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Manager manager = new Manager();
-        Book book = new Book();
+        String titleBook;
+        String authorBook;
+        int contBook;
         int opc;
         List<String> books = new ArrayList<>();
 
@@ -39,9 +41,15 @@ public class Main {
                 switch (opc){
                     case 1:
                         System.out.print("\n\nDigite o titulo do livro: ");
-                        System.out.println("Digite o author do livro");
+                        titleBook = sc.next();
+                        System.out.print("Digite o author do livro");
+                        authorBook = sc.next();
+
+                        books.add(new Book(titleBook, authorBook).toString());
+                        System.out.println("Livro adicionado!");
                         break;
                     case 2:
+                        books.forEach(System.out::println);
                         break;
                 }
 
@@ -58,7 +66,7 @@ public class Main {
                 System.out.println("=====================");
             } while (opc != 0);
         } else{
-            System.out.println("Sistema encerrando...");
+            System.out.println("Encerrando Sistema...");
         }
 
         System.out.print("===========================");
