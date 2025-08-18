@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Manager manager = new Manager();
+        int opc;
 
         System.out.println("=======Administrador=======");
         System.out.print("Olá Adm! Digite o login do gerente: ");
@@ -20,8 +21,11 @@ public class Main {
         acessManagerPanel = Character.toUpperCase(acessManagerPanel);
 
         if (acessManagerPanel == 'S') {
-            var opc = sc.nextInt();
+            System.out.print("Digite o login do gerente: ");
+
             do {
+
+                opc = sc.nextInt();
 
                 System.out.print("Olá! Digite o Login do gerente: ");
                 var loginManager = sc.next();
