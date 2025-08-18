@@ -39,6 +39,7 @@ public class Main {
                 switch (opc){
                     case 1:
                         System.out.print("\n\nDigite o titulo do livro: ");
+                        System.out.println("Digite o author do livro");
                         break;
                     case 2:
                         break;
