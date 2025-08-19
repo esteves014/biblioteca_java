@@ -6,9 +6,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Manager manager = new Manager();
+        Book book = new Book();
         String titleBook;
         String authorBook;
-        int contBook;
+        String loginManager = "";
+        String passwordManager = "";
+        int contBook = 0;
         int opc;
         List<String> books = new ArrayList<>();
 
@@ -28,6 +31,14 @@ public class Main {
 
         if (acessManagerPanel == 'S') {
 
+            while (!manager.verifyLogin(loginManager, passwordManager)) {
+                System.out.print("Olá! Digite o Login do gerente: ");
+                loginManager = sc.next();
+
+                System.out.print("Olá! Digite a senha do gerente: ");
+                passwordManager = sc.next();
+            }
+
             do {
                 System.out.println("=======Gerente=======");
                 System.out.println("Digite 1 -> Cadastrar Livro");
@@ -40,27 +51,26 @@ public class Main {
 
                 switch (opc){
                     case 1:
-                        System.out.print("\n\nDigite o titulo do livro: ");
+                        System.out.print("\nDigite o titulo do livro: ");
                         titleBook = sc.next();
                         System.out.print("Digite o author do livro");
                         authorBook = sc.next();
+                        book.setBook(titleBook, authorBook);
 
-                        books.add(new Book(titleBook, authorBook).toString());
+                        books.add(book.getBook());
+                        contBook += 1;
                         System.out.println("Livro adicionado!");
                         break;
                     case 2:
                         books.forEach(System.out::println);
                         break;
-                }
+                    case 3:
+                        System.out.print("Digite a nova senha: ");
+                        manager.setPassword(sc.next());
+                        break;
 
-                System.out.print("Olá! Digite o Login do gerente: ");
-                var loginManager = sc.next();
-
-                System.out.print("Olá! Digite a senha do gerente: ");
-                var passwordManager = sc.next();
-
-                if (manager.verifyLogin(loginManager, passwordManager)) {
-                    System.out.println();
+                    default:
+                        System.out.println("Escolha uma das opções!");
                 }
 
                 System.out.println("=====================");
